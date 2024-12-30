@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="title">
+    <h1>QR Code Generator</h1>
+    <h2>Insert a link below to generate a QR Code</h2>
+  </div>
+  <form action="/" method="POST">
+    <input type="text" name="link" placeholder="Enter a link" required>
+    <button type="submit">Generate QR</button>
+  </form>
+
+  {% if data %}
+  <div class="generated">
+    <img src="{{ data }}" alt="Generated QR Code">
+    <p>Here is your GITHUB link QR code</p>
+  </div>
+  {% endif %}
+</body>
+</html>
